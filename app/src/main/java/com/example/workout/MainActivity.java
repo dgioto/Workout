@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void onShoweDetails(View view){
+    public void onShowDetails(View view){
         Intent intent = new Intent(this, DetailActivity.class);
         startActivity(intent);
     }
