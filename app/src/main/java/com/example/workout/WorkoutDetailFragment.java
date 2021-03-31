@@ -10,12 +10,17 @@ import android.widget.TextView;
 
 public class WorkoutDetailFragment extends Fragment {
 
+    //индификатор комплекса упражнений, выбраного пользователя
     private long workoutId;
 
+    //вызывается, когда Андроид потребуется макет фрагмента
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // макет фрагмента задается методом inflate(), заполняет макет фрагмента,
+        //преобразуя разметку XML в объекты Java
+        //аргумент container содержит объект, в котором должен быть вставлен макет фрагмента
+        //в последнем параметре передается объект Bundle
         return inflater.inflate(
                 R.layout.fragment_workout_detail,
                 container,
@@ -25,7 +30,9 @@ public class WorkoutDetailFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        //получаем корневой объект View фрагмента
         View view = getView();
+        //Полученный объект используем для получения ссылко на надписи
         if (view != null){
             TextView title = (TextView) view.findViewById(R.id.textTitle);
             Workout workout = Workout.workouts[(int) workoutId];

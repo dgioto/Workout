@@ -10,8 +10,11 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        //возвращает ссылку на фрагмент.
+        //В макете активности этому фрагменту присвоен индификатор detail_frag
         WorkoutDetailFragment frag = (WorkoutDetailFragment)
                 getSupportFragmentManager().findFragmentById(R.id.detail_frag);
+        //выводим информацию о произвольно выбранном комплексе
         frag.setWorkoutId(1);
     }
 }
