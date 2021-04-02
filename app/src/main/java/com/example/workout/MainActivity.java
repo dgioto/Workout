@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
 //        startActivity(intent);
 //    }
 
-    //метод определенный интерфейсом, его необходимо реализовать
+    //открывет DetailActivity и передает идентификатор выбранного комплекса упражнения
     @Override
     public void itemClicked(long id) {
         Intent intent = new Intent(this, DetailActivity.class);
