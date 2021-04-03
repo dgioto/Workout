@@ -22,8 +22,13 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
     //открывет DetailActivity и передает идентификатор выбранного комплекса упражнения
     @Override
     public void itemClicked(long id) {
-        Intent intent = new Intent(this, DetailActivity.class);
-        intent.putExtra(DetailActivity.EXTRA_WORKOUT_ID, (int) id);
-        startActivity(intent);
+        View fragmentContainer = findViewById(R.id.fragment_container);
+        if (fragmentContainer != null){
+            //Добавление фрагмента в FragmentLayout
+        } else {
+            Intent intent = new Intent(this, DetailActivity.class);
+            intent.putExtra(DetailActivity.EXTRA_WORKOUT_ID, (int) id);
+            startActivity(intent);
+        }
     }
 }
