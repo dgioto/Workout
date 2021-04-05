@@ -1,6 +1,8 @@
 package com.example.workout;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,15 @@ public class WorkoutDetailFragment extends Fragment {
 
     //индификатор комплекса упражнений, выбраного пользователя
     private long workoutId;
+
+    //востанавливаем значение workoutId после уничтожения фрагмента
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState != null){
+            workoutId = savedInstanceState.getLong("workoutId");
+        }
+    }
 
     //вызывается, когда Андроид потребуется макет фрагмента
     @Override
@@ -40,6 +51,13 @@ public class WorkoutDetailFragment extends Fragment {
             TextView description = (TextView) view.findViewById(R.id.textDescription);
             description.setText(workout.getDescription());
         }
+    }
+
+    //значение workoutId сохраняется в объекте savedInstanceState перед уничтожением фрагмента
+    //и будет востановлено в методе onCreate()
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
+        savedInstanceState.putLong("workoutId", workoutId);
     }
 
     public void setWorkoutId(long id){
